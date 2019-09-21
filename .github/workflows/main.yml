@@ -15,7 +15,7 @@ jobs:
     - name: npm install
       run: npm install
     - name: install scf cli
-      run: pip install scf
+      run: pip install --upgrade pip && pip install scf
     - name: scf configure
       env: 
         APPID: 1252618971
