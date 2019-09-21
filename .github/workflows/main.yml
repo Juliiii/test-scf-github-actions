@@ -23,6 +23,6 @@ jobs:
         SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
         SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
       run: scf configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
-    - name: scf deploy -t ./hello_world/template.yaml
-      run: scf deploy
+    - name: scf deploy
+      run: scf deploy -t ./hello_world/template.yaml
   
