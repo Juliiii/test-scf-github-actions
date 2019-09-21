@@ -10,12 +10,8 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: cd hello_world
-      run: cd hello_world
     - name: npm install
-      run: npm install
-#     - name: upgrade pip
-#       run: pip install -U pip
+      run: cd hello-world && npm install
     - name: pip --version
       run: pip --version
     - name: install SCF CLI
@@ -27,6 +23,6 @@ jobs:
         SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
         SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
       run: scf configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
-    - name: scf deploy
+    - name: scf deploy -t ./hello-world/template.yaml
       run: scf deploy
   
