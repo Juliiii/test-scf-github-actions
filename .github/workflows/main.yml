@@ -12,17 +12,25 @@ jobs:
         node-version: '10.x'
     - name: npm install
       run: cd hello_world && npm install
-    - name: pip --version
-      run: pip --version
-    - name: install SCF CLI
-      run: sudo pip install scf
-    - name: scf configure
-      env: 
-        APPID: 1252618971
-        REGION: ap-guangzhou
-        SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
-        SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
-      run: scf configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
-    - name: scf deploy
-      run: scf deploy -t ./hello_world/template.yaml -f
+    - name: deploy
+      uses: Juliiii/action-scf@master
+      args: scf deploy -t ./hello_world/template.yaml -f
+      with:
+        appId: 1252618971
+        region: ap-guangzhou
+        secretId: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
+        secretKey: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}      
+#     - name: pip --version
+#       run: pip --version
+#     - name: install SCF CLI
+#       run: sudo pip install scf
+#     - name: scf configure
+#       env: 
+#         APPID: 1252618971
+#         REGION: ap-guangzhou
+#         SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
+#         SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
+#       run: scf configure set --appid $APPID --region $REGION --secret-id $SECRET_ID --secret-key $SECRET_KEY
+#     - name: scf deploy
+#       run: scf deploy -t ./hello_world/template.yaml -f
   
