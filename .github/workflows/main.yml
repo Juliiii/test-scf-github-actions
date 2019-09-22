@@ -17,6 +17,7 @@ jobs:
       with:
         appId: 1252618971
         region: ap-guangzhou
+        usingCos: "true"
         secretId: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
         secretKey: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
         args: scf deploy -t ./hello_world/template.yaml -f
