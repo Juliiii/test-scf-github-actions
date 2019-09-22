@@ -12,7 +12,7 @@ jobs:
         node-version: '10.x'
     - name: npm install
       run: cd hello_world && npm install
-    - name: deploy
+    - name: deploy func
       uses: Juliiii/action-scf@master
       with:
         appId: 1252618971
