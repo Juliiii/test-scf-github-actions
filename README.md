@@ -1,2 +1,2 @@
-# test-scf-github-actions
+# test-scf-github-action
 
